@@ -53,10 +53,43 @@ The watermark format: `DD.MM.YYYY` (e.g., `29.12.2024`).
 
 ## Code Highlights
 1. **Date Formatting**:
-   ```javascript
-   function formatDate(dateStr) {
+    ```javascript
+    function formatDate(dateStr) {
        var year = dateStr.substring(0, 4);
        var month = dateStr.substring(4, 6);
        var day = dateStr.substring(6, 8);
        return day + '.' + month + '.' + year;
-   }
+    }
+	```
+2. **Dynamic Font Sizing**:
+    ```javascript
+    if (doc.width >= doc.height) {
+        var fontSize = doc.height / 17;
+    }
+    else {
+        var fontSize = doc.width / 17;
+    }
+    textLayer.textItem.size = fontSize;
+	```
+	
+3. **Dynamic Text Placement**:
+    ```javascript
+	if (doc.width >= doc.height) {
+    textLayer.textItem.position = [
+        doc.width * 0.8,
+        doc.height * 0.92
+    ];
+	} else {
+    textLayer.textItem.position = [
+        doc.width * 0.7,
+        doc.height * 0.92
+	];
+	}
+	```
+	
+4. **Adding text to the image**:
+    ```javascript	
+	var blackTextLayer = doc.artLayers.add();
+    blackTextLayer.kind = LayerKind.TEXT;
+    blackTextLayer.textItem.contents = formattedDate;
+	```
