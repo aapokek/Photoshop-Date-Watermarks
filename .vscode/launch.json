@@ -1,0 +1,12 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "extendscript-debug",
+            "request": "launch",
+            "name": "Launch Script",
+            "script": "${workspaceFolder}/paivayksien_lisays.jsx",
+            "hostAppSpecifier": "photoshop"
+        }
+    ]
+}
